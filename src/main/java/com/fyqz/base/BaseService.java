@@ -2,7 +2,6 @@ package com.fyqz.base;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.baomidou.mybatisplus.service.IService;
 import com.fyqz.cache.CacheUtil;
 import com.fyqz.constants.Constants;
 import com.fyqz.exception.BusinessException;
@@ -24,7 +23,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Title: BaseService
@@ -33,7 +35,7 @@ import java.util.concurrent.*;
  * @author: zengchao
  * @date: 2019/5/16 10:17
  */
-public abstract class BaseService<T extends BaseModel, M extends BaseMapper<T>> implements ApplicationContextAware, IService<T> {
+public abstract class BaseService<T extends BaseModel, M extends BaseMapper<T>> implements ApplicationContextAware {
     protected Logger logger = LogManager.getLogger();
     /**
      * 缓存键值
@@ -62,10 +64,11 @@ public abstract class BaseService<T extends BaseModel, M extends BaseMapper<T>> 
      * @param entity 查询参数
      * @return 查询页数
      */
-    @Override
     public List<T> selectList(Wrapper<T> entity) {
         return mapper.selectList(entity);
     }
+
+
 
     /**
      * 根据Id查询(默认类型T)
