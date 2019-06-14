@@ -11,15 +11,14 @@
 package com.fyqz.exception;
 
 
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 业务异常.
- *
+ * 业务异常
+ * @author zengchao
+ * @date
  */
 @Slf4j
-@Data
 public class BusinessException extends RuntimeException {
 
 	/**
