@@ -4,8 +4,10 @@ package com.fyqz.result;
  * @date
  */
 public enum ResultEnum {
-    //错误
+    //异常
     ERROR(500, "未知异常,请联系管理员"),
+    //错误
+    UNKNOWN_ERROR(-1, "错误"),
     //成功
     SUCCESS(1000, "success");
     private Integer code;

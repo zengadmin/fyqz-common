@@ -52,8 +52,8 @@ public class ResultUtil {
      **/
     public static Result error(Object object) {
         Result result = new Result();
-        result.setCode(ResultEnum.ERROR.getCode());
-        result.setMsg(ResultEnum.ERROR.getMsg());
+        result.setCode(ResultEnum.UNKNOWN_ERROR.getCode());
+        result.setMsg(ResultEnum.UNKNOWN_ERROR.getMsg());
         result.setData(object);
         return result;
     }
