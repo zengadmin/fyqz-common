@@ -13,12 +13,12 @@ import java.util.Objects;
  * @date: 2018/11/2 14:16
  */
 public class LogUtil {
-    private static final LogUtil log=new LogUtil();
+    private static final LogUtil LOG=new LogUtil();
     private LogUtil(){
 
     }
     public static LogUtil getInstance(){
-        return  log;
+        return  LOG;
     }
     /**
      * @Description: 打印日誌
