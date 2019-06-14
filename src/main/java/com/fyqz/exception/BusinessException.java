@@ -11,6 +11,7 @@
 package com.fyqz.exception;
 
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date
  */
 @Slf4j
+@Data
 public class BusinessException extends RuntimeException {
 
 	/**
