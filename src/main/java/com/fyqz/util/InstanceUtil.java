@@ -3,8 +3,6 @@ package com.fyqz.util;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.fyqz.exception.BusinessException;
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -22,7 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @since 2012-07-18
  */
 public final class InstanceUtil {
-    protected static Logger logger = LogManager.getLogger(InstanceUtil.class);
 
     private InstanceUtil() {
 

@@ -31,10 +31,11 @@ public final class DataUtil {
         for (int n = 0; n < b.length; n++) {
             // 整数转成十六进制表示
             stmp = Integer.toHexString(b[n] & 0XFF);
-            if (stmp.length() == 1)
+            if (stmp.length() == 1) {
                 hs.append("0").append(stmp);
-            else
+            } else {
                 hs.append(stmp);
+            }
         }
         return hs.toString(); // 转成大写
     }
@@ -47,8 +48,9 @@ public final class DataUtil {
      */
     public static final byte[] hex2byte(String hs) {
         byte[] b = hs.getBytes();
-        if ((b.length % 2) != 0)
+        if ((b.length % 2) != 0) {
             throw new IllegalArgumentException("长度不是偶数");
+        }
         byte[] b2 = new byte[b.length / 2];
         for (int n = 0; n < b.length; n += 2) {
             String item = new String(b, n, 2);
@@ -130,8 +132,9 @@ public final class DataUtil {
      * @return boolean 返回的布尔值
      */
     public static final boolean isEmpty(Object pObj) {
-        if (pObj == null || "".equals(pObj))
+        if (pObj == null || "".equals(pObj)) {
             return true;
+        }
         if (pObj instanceof String) {
             if (((String) pObj).trim().length() == 0) {
                 return true;
@@ -148,9 +151,9 @@ public final class DataUtil {
         return false;
     }
 
-    public static String nullToStr(Object obj){
+    public static String nullToStr(Object obj) {
         String str = "";
-        if(isNotEmpty(obj)){
+        if (isNotEmpty(obj)) {
             str = String.valueOf(obj);
         }
         return str;
@@ -164,8 +167,9 @@ public final class DataUtil {
      * @return boolean 返回的布尔值
      */
     public static final boolean isNotEmpty(Object pObj) {
-        if (pObj == null || "".equals(pObj))
+        if (pObj == null || "".equals(pObj)) {
             return false;
+        }
         if (pObj instanceof String) {
             if (((String) pObj).trim().length() == 0) {
                 return false;
@@ -202,22 +206,25 @@ public final class DataUtil {
      * @return
      */
     private static URL getClassLocationURL(final Class<?> cls) {
-        if (cls == null)
+        if (cls == null) {
             throw new IllegalArgumentException("null input: cls");
+        }
         URL result = null;
         final String clsAsResource = cls.getName().replace('.', '/').concat(".class");
         final ProtectionDomain pd = cls.getProtectionDomain();
         if (pd != null) {
             final CodeSource cs = pd.getCodeSource();
-            if (cs != null)
+            if (cs != null) {
                 result = cs.getLocation();
+            }
             if (result != null) {
                 if ("file".equals(result.getProtocol())) {
                     try {
-                        if (result.toExternalForm().endsWith(".jar") || result.toExternalForm().endsWith(".zip"))
+                        if (result.toExternalForm().endsWith(".jar") || result.toExternalForm().endsWith(".zip")) {
                             result = new URL("jar:".concat(result.toExternalForm()).concat("!/").concat(clsAsResource));
-                        else if (new File(result.getFile()).isDirectory())
+                        } else if (new File(result.getFile()).isDirectory()) {
                             result = new URL(result, clsAsResource);
+                        }
                     } catch (MalformedURLException ignore) {
                     }
                 }
