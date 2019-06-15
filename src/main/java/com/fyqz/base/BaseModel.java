@@ -30,7 +30,7 @@ public abstract class BaseModel extends Model implements Serializable {
     /**
      * 修改人ID
      */
-    @TableId(value = "update_Id")
+    @TableId(value = "update_id")
     private String updateId;
 
     /**
