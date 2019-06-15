@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -25,8 +24,8 @@ public abstract class BaseModel extends Model implements Serializable {
     /**
      * 创建人ID
      */
-    @TableId(value = "creator_id")
-    private String creatorId;
+    @TableId(value = "create_id")
+    private String createId;
 
     /**
      * 修改人ID
@@ -37,16 +36,14 @@ public abstract class BaseModel extends Model implements Serializable {
     /**
      * 创建时间
      */
-    @TableId(value = "created_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableId(value = "create_time")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    private Date createdTime;
+    private Date createTime;
 
     /**
      * 更新时间
      */
     @TableId(value = "update_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
 
