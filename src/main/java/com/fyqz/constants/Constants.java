@@ -10,4 +10,5 @@ package com.fyqz.constants;
 public interface Constants {
     /** 缓存命名空间 */
     String CACHE_NAMESPACE = "fyqz:";
+    String TOKEN_USER="token_user";
 }
