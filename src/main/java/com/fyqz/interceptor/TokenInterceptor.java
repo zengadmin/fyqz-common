@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 @Slf4j
 public class TokenInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
