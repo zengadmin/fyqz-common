@@ -18,7 +18,7 @@ public abstract class BaseModel extends Model implements Serializable {
     /**
      * 主键ID
      */
-    @TableId(value = "id", type = IdType.UUID)
+    @TableId(value = "id", type = IdType.ID_WORKER)
     private String id;
 
     /**
